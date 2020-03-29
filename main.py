@@ -8,8 +8,8 @@ count = 0
 s = 300
 r = s//6
 
-height = 500
-width = 1000
+height = 200
+width = 500
 offset = 100
 
 #constants for bar graph
@@ -19,14 +19,19 @@ bars = [0 for i in range(5)]
 firsttime = True;
 
 def bargraphsetup():
-    c.create_line(offset, height + offset, offset, offset)
-    c.create_line(offset, height + offset, width + offset, height + offset)
-    c.create_text(1.5*offset + width//2, height + 1.5*offset, text = 'Emotions')
-    c.create_text(.3*offset, offset + .5*height, text = 'Percent')
+    c.create_text(50, 280, text = "Anger")
+    c.create_text(170, 280, text = "Joy")
+    c.create_text(290, 280, text = "Surprise")
+    c.create_text(430, 280, text = "Sorrow")
+    c.create_text(560, 280, text = "Neutral")
 
-    for i in range(5):
-        c.create_text(.8*offset, height + offset - height//4*i, text = '' + str(100/4*i) + '%')
-        c.create_text((2*i + 1.5)*width//10 + offset, height + 1.2 * offset, text = emotions[i])
+    c.create_rectangle(35, 230, 65, 260, fill = colors[0])
+    c.create_rectangle(155, 230, 185, 260, fill = colors[1])
+    c.create_rectangle(275, 230, 305, 260, fill = colors[2])
+    c.create_rectangle(415, 230, 445, 260, fill = colors[3])
+    c.create_rectangle(545, 230, 575, 260, fill = colors[4])
+
+    c.create_text(offset + 200, offset/2, text = "Live-Updating Mood Tracker")
 
 def bargraph(data):
     global firsttime
@@ -35,9 +40,15 @@ def bargraph(data):
     else:
         firsttime = False
 
+    cumulative_length = 0
     for i in range(5):
-        h = height * data[i]
-        bars[i] = c.create_rectangle((2*i + 1)*width//10 + offset, height + offset, (2*i+2) * width//10 + offset, height + offset - h, fill = colors[i], outline = '')
+        length = 325 * data[i]
+        x1 = offset + cumulative_length
+        y1 = offset
+        x2 = offset + x1 + length
+        y2 = offset + 50
+        cumulative_length += length
+        bars[i] = c.create_rectangle(x1,y1,x2,y2,fill = colors[i])
 
 def start():
     global running
