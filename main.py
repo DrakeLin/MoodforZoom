@@ -33,7 +33,7 @@ def bargraphsetup():
     c.create_rectangle(415, 230, 445, 260, fill = colors[3])
     c.create_rectangle(545, 230, 575, 260, fill = colors[4])
 
-    c.create_text(offset + 200, offset/2, text = "Live-Updating Mood Tracker")
+    c.create_text(offset + 200, offset/2, text = "Live-Updating Mood Meter")
     
     #c.create_line(offset, height + offset, offset, offset)
     #c.create_line(offset, height + offset, width + offset, height + offset)
@@ -153,7 +153,7 @@ def sendNumber(data):
 
 t = tk.Tk()
 t.geometry(str(width + 2 * offset)+'x'+str(height + offset*2))  
-t.title('Screenshot') 
+t.title('Mood Meter') 
 button = tk.Button(height = 1,text = 'Start', fg = "black", command = start) 
 button.pack()
 c = Canvas(t, width=width + 100, height=height + offset*2)
