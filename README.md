@@ -1,4 +1,6 @@
 ## Mood for Zoom
+LA Hacks 2nd Place
+Honorable Mention Hack Using Machine Learning
 
 ## Inspiration
 As universities and high schools shut down indefinitely, college professors and educators the world over have been **forced to abruptly move their lectures to the online medium of Zoom**. One of the most jarring shifts is **the loss of the ability to "read the room"**; most professors and public speakers actively gauge the mood of their audience based on body language and facial cues in the classroom and adjust accordingly to speed up, slow down, or pause for questions. 
